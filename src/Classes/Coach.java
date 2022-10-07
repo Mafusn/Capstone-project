@@ -25,4 +25,18 @@ public class Coach extends Person{
     public void setSuspension(int suspension) {
         this.suspension += suspension;
     }
+
+    public String onlyNameToString() {
+        return "Coach: " + this.getName();
+    }
+
+    @Override
+    public String toString() {
+        return "Coach{" +
+                "name = " + this.getName() +
+                "team=" + team +
+                ", yearsOfExperience=" + yearsOfExperience +
+                ", suspension=" + suspension +
+                '}';
+    }
 }

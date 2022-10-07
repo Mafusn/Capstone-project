@@ -45,4 +45,20 @@ public class TeamLeader extends Person{
     public void setSuspension(int suspension) {
         this.suspension += suspension;
     }
+
+    public String onlyNameToString() {
+        return "Team leader: " + this.getName();
+    }
+
+    @Override
+    public String toString() {
+        return "TeamLeader{" +
+                "name = " + this.getName() +
+                "team=" + team +
+                ", iceBags=" + iceBags +
+                ", sportsTape=" + sportsTape +
+                ", phoneNumber=" + phoneNumber +
+                ", suspension=" + suspension +
+                '}';
+    }
 }

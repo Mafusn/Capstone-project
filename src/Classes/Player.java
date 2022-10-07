@@ -38,9 +38,9 @@ public class Player extends Person{
         this.goals += goals;
     }
 
-    /*public void setMatches(int[] matches) {
+    public void setMatches(int[] matches) {
         this.matches = matches;
-    }*/
+    }
 
     public void setSuspension(int suspension) {
         this.suspension += suspension;

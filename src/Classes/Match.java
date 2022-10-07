@@ -19,16 +19,22 @@ public class Match {
         this.official = official;
     }
 
-    public void playMatch(Team team1, int team1Goals, Team team2, int team2Goals, Referee ref1, Referee ref2, Official official) {
-        if (team1Goals == team2Goals) {
-            team1.setDraws(1);
-            team2.setDraws(1);
-        } else if (team1Goals > team2Goals) {
-            team1.setWins(1);
-            team2.setLosses(1);
+    public void playMatch(int homeTeamGoals, int awayTeamGoals) {
+        this.homeTeam.setScoredGoals(homeTeamGoals);
+        this.homeTeam.setConcededGoals(awayTeamGoals);
+
+        this.awayTeam.setScoredGoals(awayTeamGoals);
+        this.awayTeam.setConcededGoals(homeTeamGoals);
+
+        if (homeTeamGoals == awayTeamGoals) {
+            this.homeTeam.setDraws(1);
+            this.awayTeam.setDraws(1);
+        } else if (homeTeamGoals > awayTeamGoals) {
+            this.homeTeam.setWins(1);
+            this.awayTeam.setLosses(1);
         } else {
-            team1.setLosses(1);
-            team2.setWins(1);
+            this.homeTeam.setLosses(1);
+            this.awayTeam.setWins(1);
         }
     }
 }

@@ -11,4 +11,12 @@ public abstract class Person {
         Name = name;
         this.ID = ID;
     }
+
+    public String getName() {
+        return Name;
+    }
+
+    public int getID() {
+        return ID;
+    }
 }

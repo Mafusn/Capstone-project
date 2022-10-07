@@ -1,11 +1,15 @@
 package Classes;
 
+import java.util.Arrays;
+
 public class Team {
     private String name;
     private Player[] players;
     private Coach coach;
     private TeamLeader teamLeader;
     private Match[] matches;
+    private int scoredGoals;
+    private int concededGoals;
     private int wins;
     private int losses;
     private int draws;
@@ -18,6 +22,18 @@ public class Team {
         this.wins = wins;
         this.losses = losses;
         this.draws = draws;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Coach getCoach() {
+        return coach;
+    }
+
+    public TeamLeader getTeamLeader() {
+        return teamLeader;
     }
 
     public Player[] getPlayers() {
@@ -56,8 +72,37 @@ public class Team {
         this.draws += draws;
     }
 
+    public int getScoredGoals() {
+        return scoredGoals;
+    }
+
+    public void setScoredGoals(int scoredGoals) {
+        this.scoredGoals += scoredGoals;
+    }
+
+    public int getConcededGoals() {
+        return concededGoals;
+    }
+
+    public void setConcededGoals(int concededGoals) {
+        this.concededGoals += concededGoals;
+    }
+
     public void addPlayer(Player player) {
         // Lav et for loop her for at tjekke at nummeret ikke allerede er i listen
         this.players[player.getNumber()] = player;
+    }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "name='" + name + '\'' +
+                ", " + coach.onlyNameToString() +
+                ", " + teamLeader.onlyNameToString() +
+                ", wins=" + wins +
+                ", losses=" + losses +
+                ", draws=" + draws +
+                ", goals: " + (scoredGoals - concededGoals) +
+                '}';
     }
 }
