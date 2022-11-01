@@ -1,8 +1,8 @@
 package Classes;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
-public class Demo {
+public class Main {
     public static void main(String[] args) {
         // Referees & officials
         Referee preben = new Referee("Preben", 26452, 5);
@@ -36,10 +36,11 @@ public class Demo {
         match2.playMatch(34, 32);
 
         // Groups
-        Group groupA = new Group('A', new Team[]{ajax, ringsted, slagelse, maribo});
-
-        System.out.println(ajax.getWins() + ", " + ajax.getLosses() + ", " + ajax.getDraws());
-        System.out.println(ringsted.getWins() + ", " + ringsted.getLosses() + ", " + ringsted.getDraws());
+        Group groupA = new Group('A', new ArrayList<>());
+        groupA.addTeam(slagelse);
+        groupA.addTeam(ajax);
+        groupA.addTeam(ringsted);
+        groupA.addTeam(maribo);
 
         groupA.sortTeamsInGroup(groupA.getTeams());
     }

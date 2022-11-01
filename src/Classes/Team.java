@@ -1,13 +1,14 @@
 package Classes;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Team {
     private String name;
-    private Player[] players;
+    private ArrayList<Player> players;
     private Coach coach;
     private TeamLeader teamLeader;
-    private Match[] matches;
+    private ArrayList<Integer> matches;
     private int scoredGoals;
     private int concededGoals;
     private int wins;
@@ -16,7 +17,7 @@ public class Team {
 
     public Team(String name, Coach coach, TeamLeader teamLeader, int wins, int losses, int draws) {
         this.name = name;
-        this.players = new Player[12];
+        this.players = new ArrayList<>();
         this.coach = coach;
         this.teamLeader = teamLeader;
         this.wins = wins;
@@ -36,16 +37,16 @@ public class Team {
         return teamLeader;
     }
 
-    public Player[] getPlayers() {
+    public ArrayList<Player> getPlayers() {
         return this.players;
     }
 
-    public Match[] getMatches() {
+    public ArrayList<Integer> getMatches() {
         return this.matches;
     }
 
-    public void setMatches(Match[] matches) {
-        this.matches = matches;
+    public void setMatches(Match match) {
+        this.matches.add(match.getID());
     }
 
     public int getWins() {
@@ -88,9 +89,12 @@ public class Team {
         this.concededGoals += concededGoals;
     }
 
+    public int getScore() {
+        return this.getScoredGoals() - this.getConcededGoals();
+    }
+
     public void addPlayer(Player player) {
         // Lav et for loop her for at tjekke at nummeret ikke allerede er i listen
-        this.players[player.getNumber()] = player;
     }
 
     @Override
@@ -102,7 +106,7 @@ public class Team {
                 ", wins=" + wins +
                 ", losses=" + losses +
                 ", draws=" + draws +
-                ", goals: " + (scoredGoals - concededGoals) +
+                ", goals: " + this.getScore() +
                 '}';
     }
 }

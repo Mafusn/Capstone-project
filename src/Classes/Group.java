@@ -1,14 +1,15 @@
 package Classes;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Group {
     private char name;
-    private Team[] teams;
+    private ArrayList<Team> teams;
 
-    public Group(char name, Team[] teams) {
+    public Group(char name, ArrayList<Team> teams) {
         this.name = name;
-        this.teams = new Team[4];
+        this.teams = new ArrayList<>();
         this.teams = teams;
     }
 
@@ -16,27 +17,42 @@ public class Group {
         return this.name;
     }
 
-    public Team[] getTeams() {
+    public ArrayList<Team> getTeams() {
         return this.teams;
     }
 
-    public void sortTeamsInGroup(Team[] teams) {
-        for (int i = 0; i <= teams.length - 1; i++){
-            System.out.println(teams[i]);
+    public void addTeam(Team team) {
+        this.teams.add(team);
+    }
+
+    // Fungerer slet ik...
+    public void sortTeamsInGroup(ArrayList<Team> teams) {
+        /*for (int i = 0; i <= teams.size() - 1; i++){
+            System.out.println(teams.get(i));
+        }*/
+
+        // Sorts from most wins
+        for (int i = 0; i <= teams.size() - 2; i++) {
+            if (teams.get(i).getWins() < teams.get(i + 1).getWins()) {
+                Team teamPlaceholder = teams.get(i);
+                teams.set(i, teams.get(i + 1));
+                teams.set(i + 1, teamPlaceholder);
+            }
         }
 
-        for (int i = 0; i <= teams.length - 2; i++) {
-            if (teams[i].getWins() < teams[i + 1].getWins()) {
-                Team teamPlaceholder = teams[i];
-                teams[i] = teams[i + 1];
-                teams[i + 1] = teamPlaceholder;
+        for (int i = 0; i <= teams.size() - 2; i++) {
+            if (teams.get(i).getWins() <= teams.get(i + 1).getWins() &&
+                    teams.get(i).getScore() <= teams.get(i + 1).getScore()) {
+                Team teamPlaceholder = teams.get(i);
+                teams.set(i, teams.get(i + 1));
+                teams.set(i + 1, teamPlaceholder);
             }
         }
 
         System.out.println("\n");
 
-        for (int i = 0; i <= teams.length - 1; i++){
-            System.out.println(teams[i]);
+        for (int i = 0; i <= teams.size() - 1; i++){
+            System.out.println(teams.get(i));
         }
     }
 }

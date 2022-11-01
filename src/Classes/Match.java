@@ -10,6 +10,10 @@ public class Match {
     private Referee referee2;
     private Official official;
 
+    public int getID() {
+        return ID;
+    }
+
     public Match(int ID, Team homeTeam, Team awayTeam, Referee referee1, Referee referee2, Official official) {
         this.ID = ID;
         this.homeTeam = homeTeam;

@@ -1,15 +1,17 @@
 package Classes;
 
+import java.util.ArrayList;
+
 public class Referee extends Person{
     private int yearsOfExperience;
-    private Match[] matches;
+    private ArrayList<Integer> matches;
 
     public Referee(String name, int ID, int yearsOfExperience) {
         super(name, ID);
         this.yearsOfExperience = yearsOfExperience;
     }
 
-    public Match[] getMatches() {
+    public ArrayList<Integer> getMatches() {
         return matches;
     }
 
@@ -17,7 +19,7 @@ public class Referee extends Person{
         return yearsOfExperience;
     }
 
-    public void setMatches(Match[] matches) {
-        this.matches = matches;
+    public void setMatches(Match match) {
+        this.matches.add(match.getID());
     }
 }

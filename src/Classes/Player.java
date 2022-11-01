@@ -1,8 +1,10 @@
 package Classes;
 
+import java.util.ArrayList;
+
 public class Player extends Person{
     private int goals;
-    private int[] matches;
+    private ArrayList<Integer> matches;
     private Team team;
     private int suspension;
     private int number;
@@ -22,7 +24,7 @@ public class Player extends Person{
         return this.goals;
     }
 
-    public int[] getMatches() {
+    public ArrayList<Integer> getMatches() {
         return this.matches;
     }
 
@@ -38,8 +40,8 @@ public class Player extends Person{
         this.goals += goals;
     }
 
-    public void setMatches(int[] matches) {
-        this.matches = matches;
+    public void setMatches(Match match) {
+        this.matches.add(match.getID());
     }
 
     public void setSuspension(int suspension) {
@@ -47,6 +49,6 @@ public class Player extends Person{
     }
 
     public double getGoalsPerMatch(){
-        return this.goals / this.matches.length;
+        return (double) this.goals / this.matches.size();
     }
 }
