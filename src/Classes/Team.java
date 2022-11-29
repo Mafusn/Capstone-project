@@ -1,7 +1,9 @@
 package Classes;
 
+import Classes.Exceptions.SameIDException;
+import Classes.Exceptions.SameNumberException;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Team {
     private String name;
@@ -11,18 +13,26 @@ public class Team {
     private ArrayList<Integer> matches;
     private int scoredGoals;
     private int concededGoals;
-    private int wins;
-    private int losses;
-    private int draws;
+    private int wins = 0;
+    private int losses = 0;
+    private int draws = 0;
+    private int points;
 
     public Team(String name, Coach coach, TeamLeader teamLeader, int wins, int losses, int draws) {
         this.name = name;
         this.players = new ArrayList<>();
+        this.matches = new ArrayList<>();
         this.coach = coach;
         this.teamLeader = teamLeader;
         this.wins = wins;
         this.losses = losses;
         this.draws = draws;
+    }
+
+    public void createTeamBarcelona() {
+        this.name = "Barcelona";
+        this.coach = new Coach("Antonio Carlos Ortega", 123461, 15);
+        this.teamLeader = new TeamLeader("Xavier O'Callaghan", 123462, 15, 2);
     }
 
     public String getName() {
@@ -45,8 +55,8 @@ public class Team {
         return this.matches;
     }
 
-    public void setMatches(Match match) {
-        this.matches.add(match.getID());
+    public void addMatchToTeam(Integer matchId) {
+        this.matches.add(matchId);
     }
 
     public int getWins() {
@@ -93,20 +103,39 @@ public class Team {
         return this.getScoredGoals() - this.getConcededGoals();
     }
 
-    public void addPlayer(Player player) {
-        // Lav et for loop her for at tjekke at nummeret ikke allerede er i listen
+    public int getPoints() {
+        return points;
     }
 
+    public void addPoints(int points) {
+        this.points += points;
+    }
+
+    public void addPlayers(ArrayList<Player> playersToAdd) {
+        for (int i = 0; i <= playersToAdd.size() - 2; i++) {
+            for (int j = 0; i <= playersToAdd.size() - 2; i++) {
+                if (playersToAdd.get(i).getNumber() == playersToAdd.get(j).getNumber() && i != j) {
+                    String msg = "This number is occupied";
+                    throw new SameNumberException(msg + " " + playersToAdd.get(i).getName() + " " + playersToAdd.get(i).getNumber());
+                }
+
+                if (playersToAdd.get(i).getID() == playersToAdd.get(j).getID() && i != j) {
+                    String msg = "This ID is occupied";
+                    throw new SameIDException(msg + " " + playersToAdd.get(i).getName() + " " + playersToAdd.get(i).getID());
+                }
+            }
+        }
+
+        this.players.addAll(playersToAdd);
+    }
     @Override
     public String toString() {
-        return "Team{" +
-                "name='" + name + '\'' +
-                ", " + coach.onlyNameToString() +
-                ", " + teamLeader.onlyNameToString() +
-                ", wins=" + wins +
-                ", losses=" + losses +
-                ", draws=" + draws +
-                ", goals: " + this.getScore() +
-                '}';
+        return String.format("%-12s", this.name + ":") +
+                "     " + String.format("%5d", this.wins) +
+                "    " + this.losses +
+                "    " + this.draws +
+                "    " +
+                this.getScoredGoals() + " - " + this.getConcededGoals() +
+                "    " + this.getPoints();
     }
 }

@@ -9,6 +9,7 @@ public class Official extends Person{
     public Official(String name, int ID, int yearsOfExperience) {
         super(name, ID);
         this.yearsOfExperience = yearsOfExperience;
+        this.matches = new ArrayList<>();
     }
 
     public ArrayList<Integer> getMatches() {
@@ -19,7 +20,7 @@ public class Official extends Person{
         return yearsOfExperience;
     }
 
-    public void setMatches(Match match) {
-        matches.add(match.getID());
+    public void setMatches(Integer matchId) {
+        this.matches.add(matchId);
     }
 }

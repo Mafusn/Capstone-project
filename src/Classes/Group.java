@@ -25,33 +25,33 @@ public class Group {
         this.teams.add(team);
     }
 
-    // Fungerer slet ik...
     public void sortTeamsInGroup(ArrayList<Team> teams) {
-        /*for (int i = 0; i <= teams.size() - 1; i++){
-            System.out.println(teams.get(i));
-        }*/
-
-        // Sorts from most wins
-        for (int i = 0; i <= teams.size() - 2; i++) {
-            if (teams.get(i).getWins() < teams.get(i + 1).getWins()) {
-                Team teamPlaceholder = teams.get(i);
-                teams.set(i, teams.get(i + 1));
-                teams.set(i + 1, teamPlaceholder);
+        for (int i = 0; i <= teams.size() - 1; i++) {
+            for (int j = 0; j <= teams.size() - 1; j++) {
+                if (teams.get(j).getPoints() < teams.get(i).getPoints() && i != j) {
+                    Team teamPlaceholder = teams.get(i);
+                    teams.set(i, teams.get(j));
+                    teams.set(j, teamPlaceholder);
+                }
             }
         }
 
-        for (int i = 0; i <= teams.size() - 2; i++) {
-            if (teams.get(i).getWins() <= teams.get(i + 1).getWins() &&
-                    teams.get(i).getScore() <= teams.get(i + 1).getScore()) {
-                Team teamPlaceholder = teams.get(i);
-                teams.set(i, teams.get(i + 1));
-                teams.set(i + 1, teamPlaceholder);
+        for (int i = 0; i <= teams.size() - 1; i++) {
+            for (int j = 0; j <= teams.size() - 1; j++) {
+                if (teams.get(j).getPoints() <= teams.get(i).getPoints()
+                    && teams.get(j).getScore() < teams.get(i).getScore()
+                    && i != j) {
+                        Team teamPlaceholder = teams.get(i);
+                        teams.set(i, teams.get(j));
+                        teams.set(j, teamPlaceholder);
+                }
             }
         }
+    }
 
-        System.out.println("\n");
-
-        for (int i = 0; i <= teams.size() - 1; i++){
+    public void printTeams() {
+        System.out.println(String.format("%-21s", "Holdnavn") + "W    L    D      +/-      P");
+        for (int i = 0; i <= teams.size() - 1; i++) {
             System.out.println(teams.get(i));
         }
     }

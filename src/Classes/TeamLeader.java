@@ -4,22 +4,16 @@ public class TeamLeader extends Person{
     private Team team;
     private int iceBags;
     private int sportsTape;
-    private int phoneNumber;
     private int suspension;
 
-    public TeamLeader(String name, int ID, int iceBags, int sportsTape, int phoneNumber) {
+    public TeamLeader(String name, int ID, int iceBags, int sportsTape) {
         super(name, ID);
         this.iceBags = iceBags;
         this.sportsTape = sportsTape;
-        this.phoneNumber = phoneNumber;
     }
 
     public Team getTeam() {
         return this.team;
-    }
-
-    public int getPhoneNumber() {
-        return this.phoneNumber;
     }
 
     public int getIceBags() {
@@ -57,7 +51,6 @@ public class TeamLeader extends Person{
                 "team=" + team +
                 ", iceBags=" + iceBags +
                 ", sportsTape=" + sportsTape +
-                ", phoneNumber=" + phoneNumber +
                 ", suspension=" + suspension +
                 '}';
     }
