@@ -1,12 +1,14 @@
 package Classes;
 
+// Creates and returns a team, only the create team method should be public
+
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
 
-public interface CreatePlayers {
-    /*static ArrayList<Player> createPlayers() {
+public class TeamConstructor {
+
+    private ArrayList<Player> createPlayer() {
         Random rand = new Random();
         ArrayList<Integer> listWithNumbers = new ArrayList<>();
         for (int i = 0; i <= 99; i++) {
@@ -40,5 +42,7 @@ public interface CreatePlayers {
         }
 
         return players;
-    }*/
+    }
+    // private Coach createCoach
+    // private TeamLeader createTeamLeader
 }
