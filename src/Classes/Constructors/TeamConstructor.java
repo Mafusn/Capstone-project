@@ -1,9 +1,13 @@
-package Classes;
+package Classes.Constructors;
 
 // Creates and returns a team, only the create team method should be public
 
+import Classes.Coach;
 import Classes.Exceptions.SameIDException;
 import Classes.Exceptions.SameNumberException;
+import Classes.Player;
+import Classes.Team;
+import Classes.TeamLeader;
 
 import java.util.ArrayList;
 import java.util.Collections;

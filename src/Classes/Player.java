@@ -1,7 +1,6 @@
 package Classes;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Player extends Person {
     private Team team;

@@ -1,4 +1,7 @@
-package Classes;
+package Classes.Constructors;
+
+import Classes.Group;
+import Classes.Team;
 
 import java.util.ArrayList;
 

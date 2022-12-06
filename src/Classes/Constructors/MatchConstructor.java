@@ -1,4 +1,9 @@
-package Classes;
+package Classes.Constructors;
+
+import Classes.Match;
+import Classes.Official;
+import Classes.Referee;
+import Classes.Team;
 
 import java.util.Random;
 
