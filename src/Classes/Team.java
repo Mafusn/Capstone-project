@@ -18,15 +18,12 @@ public class Team {
     private int draws = 0;
     private int points;
 
-    public Team(String name, Coach coach, TeamLeader teamLeader, int wins, int losses, int draws) {
+    public Team(String name, Coach coach, TeamLeader teamLeader) {
         this.name = name;
-        this.players = new ArrayList<>();
-        this.matches = new ArrayList<>();
         this.coach = coach;
         this.teamLeader = teamLeader;
-        this.wins = wins;
-        this.losses = losses;
-        this.draws = draws;
+        this.players = new ArrayList<>();
+        this.matches = new ArrayList<>();
     }
 
     public void createTeamBarcelona() {
@@ -131,11 +128,11 @@ public class Team {
     @Override
     public String toString() {
         return String.format("%-12s", this.name + ":") +
-                "     " + String.format("%5d", this.wins) +
+                "     " + String.format("%2d", this.wins) +
                 "    " + this.losses +
                 "    " + this.draws +
                 "    " +
-                this.getScoredGoals() + " - " + this.getConcededGoals() +
+                String.format("%3s", this.getScoredGoals()) + " - " + String.format("%3s", this.getConcededGoals()) +
                 "    " + this.getPoints();
     }
 }
