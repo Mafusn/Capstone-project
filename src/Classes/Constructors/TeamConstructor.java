@@ -66,6 +66,8 @@ public class TeamConstructor {
     public Team createTeam(String teamName) {
         ArrayList<Player> players = createPlayer();
         Team team = new Team(teamName, createCoach(), createTeamLeader());
+        team.getTeamLeader().setTeam(team);
+        team.getCoach().setTeam(team);
 
         try {
             team.addPlayers(players);

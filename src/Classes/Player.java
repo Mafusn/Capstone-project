@@ -30,18 +30,4 @@ public class Player extends Person {
     public void setSuspension(int suspension) {
         this.suspension += suspension;
     }
-
-    public ArrayList<Player> createMariboPlayers() {
-        ArrayList<Player> players = new ArrayList<>();
-        players.add(new Player("Erik", 1, 1));
-        players.add(new Player("Peter", 2, 2));
-        players.add(new Player("John", 3, 3));
-        players.add(new Player("Magnus", 4, 4));
-        players.add(new Player("Hans", 5, 5));
-        players.add(new Player("Jens", 6, 6));
-        players.add(new Player("Sebastian", 7, 7));
-        players.add(new Player("Paul", 8, 8));
-
-        return players;
-    }
 }

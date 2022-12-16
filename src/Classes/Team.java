@@ -109,21 +109,29 @@ public class Team {
     }
 
     public void addPlayers(ArrayList<Player> playersToAdd) {
+        Boolean check = true;
         for (int i = 0; i <= playersToAdd.size() - 2; i++) {
             for (int j = 0; i <= playersToAdd.size() - 2; i++) {
                 if (playersToAdd.get(i).getNumber() == playersToAdd.get(j).getNumber() && i != j) {
                     String msg = "This number is occupied";
+                    check = false;
                     throw new SameNumberException(msg + " " + playersToAdd.get(i).getName() + " " + playersToAdd.get(i).getNumber());
                 }
 
                 if (playersToAdd.get(i).getID() == playersToAdd.get(j).getID() && i != j) {
                     String msg = "This ID is occupied";
+                    check = false;
                     throw new SameIDException(msg + " " + playersToAdd.get(i).getName() + " " + playersToAdd.get(i).getID());
                 }
             }
         }
 
-        this.players.addAll(playersToAdd);
+        if (check) {
+            for (Player player: playersToAdd) {
+                player.setTeam(this);
+            }
+            this.players.addAll(playersToAdd);
+        }
     }
     @Override
     public String toString() {

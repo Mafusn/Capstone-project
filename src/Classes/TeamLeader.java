@@ -16,6 +16,10 @@ public class TeamLeader extends Person{
         return this.team;
     }
 
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
     public int getIceBags() {
         return this.iceBags;
     }

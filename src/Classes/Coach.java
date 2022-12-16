@@ -14,6 +14,10 @@ public class Coach extends Person{
         return this.team;
     }
 
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
     public int getYearsOfExperience() {
         return this.yearsOfExperience;
     }
