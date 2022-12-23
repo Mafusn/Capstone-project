@@ -40,7 +40,7 @@ public class TeamConstructor {
         return listWithNames.get(rand.nextInt(listWithNames.size() - 1));
     }
 
-    private ArrayList<Player> createPlayer() {
+    private ArrayList<Player> createPlayers() {
         ArrayList<Integer> listWithNumbers = new ArrayList<>();
         ArrayList<Player> players = new ArrayList<>();
 
@@ -64,7 +64,7 @@ public class TeamConstructor {
     }
 
     public Team createTeam(String teamName) {
-        ArrayList<Player> players = createPlayer();
+        ArrayList<Player> players = createPlayers();
         Team team = new Team(teamName, createCoach(), createTeamLeader());
         team.getTeamLeader().setTeam(team);
         team.getCoach().setTeam(team);

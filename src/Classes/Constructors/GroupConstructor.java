@@ -34,7 +34,7 @@ public class GroupConstructor {
 
         return team;
     }
-    private ArrayList<Team> createGroup() {
+    private ArrayList<Team> createTeamArray() {
         ArrayList<Team> teams = new ArrayList<>();
 
         for (int i = 0; i <= 3; i++) {
@@ -45,7 +45,7 @@ public class GroupConstructor {
     }
 
     public Group createAndPlayGroup(Character name) {
-        Group group = new Group(name, createGroup());
+        Group group = new Group(name, createTeamArray());
         group.playGroupMatches();
         group.sortTeamsInGroup(group.getTeams());
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Referee extends Person{
     private int yearsOfExperience;
-    private ArrayList<Integer> matches;
+    private ArrayList<Match> matches;
 
     public Referee(String name, int ID, int yearsOfExperience) {
         super(name, ID);
@@ -12,7 +12,7 @@ public class Referee extends Person{
         this.matches = new ArrayList<>();
     }
 
-    public ArrayList<Integer> getMatches() {
+    public ArrayList<Match> getMatches() {
         return matches;
     }
 
@@ -20,7 +20,7 @@ public class Referee extends Person{
         return yearsOfExperience;
     }
 
-    public void setMatches(Integer matchId) {
-        this.matches.add(matchId);
+    public void setMatches(Match match) {
+        this.matches.add(match);
     }
 }

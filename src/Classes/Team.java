@@ -10,7 +10,7 @@ public class Team {
     private ArrayList<Player> players;
     private Coach coach;
     private TeamLeader teamLeader;
-    private ArrayList<Integer> matches;
+    private ArrayList<Match> matches;
     private int scoredGoals;
     private int concededGoals;
     private int wins = 0;
@@ -24,12 +24,6 @@ public class Team {
         this.teamLeader = teamLeader;
         this.players = new ArrayList<>();
         this.matches = new ArrayList<>();
-    }
-
-    public void createTeamBarcelona() {
-        this.name = "Barcelona";
-        this.coach = new Coach("Antonio Carlos Ortega", 123461, 15);
-        this.teamLeader = new TeamLeader("Xavier O'Callaghan", 123462, 15, 2);
     }
 
     public String getName() {
@@ -48,12 +42,12 @@ public class Team {
         return this.players;
     }
 
-    public ArrayList<Integer> getMatches() {
+    public ArrayList<Match> getMatches() {
         return this.matches;
     }
 
-    public void addMatchToTeam(Integer matchId) {
-        this.matches.add(matchId);
+    public void addMatchToTeam(Match match) {
+        this.matches.add(match);
     }
 
     public int getWins() {
@@ -84,7 +78,7 @@ public class Team {
         return scoredGoals;
     }
 
-    public void setScoredGoals(int scoredGoals) {
+    public void addScoredGoals(int scoredGoals) {
         this.scoredGoals += scoredGoals;
     }
 
@@ -92,7 +86,7 @@ public class Team {
         return concededGoals;
     }
 
-    public void setConcededGoals(int concededGoals) {
+    public void addConcededGoals(int concededGoals) {
         this.concededGoals += concededGoals;
     }
 
@@ -142,5 +136,9 @@ public class Team {
                 "    " +
                 String.format("%3s", this.getScoredGoals()) + " - " + String.format("%3s", this.getConcededGoals()) +
                 "    " + this.getPoints();
+    }
+
+    public String tableOverview() {
+        return this.getName();
     }
 }
