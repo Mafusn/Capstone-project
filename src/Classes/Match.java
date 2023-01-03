@@ -8,17 +8,17 @@ public class Match {
     private int goalsAwayTeam;
     private Referee referee1;
     private Referee referee2;
-    private Official official1;
-    private Official official2;
+    private Delegate delegate1;
+    private Delegate delegate2;
 
-    public Match(int ID, Team homeTeam, Team awayTeam, Referee referee1, Referee referee2, Official official1, Official official2) {
+    public Match(int ID, Team homeTeam, Team awayTeam, Referee referee1, Referee referee2, Delegate delegate1, Delegate delegate2) {
         this.ID = ID;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.referee1 = referee1;
         this.referee2 = referee2;
-        this.official1 = official1;
-        this.official2 = official2;
+        this.delegate1 = delegate1;
+        this.delegate2 = delegate2;
     }
 
     public Match(int ID) {
@@ -67,8 +67,8 @@ public class Match {
 
         this.referee1.setMatches(this);
         this.referee2.setMatches(this);
-        this.official1.setMatches(this);
-        this.official2.setMatches(this);
+        this.delegate1.setMatches(this);
+        this.delegate2.setMatches(this);
     }
 
     public void playOvertime(int homeTeamGoals, int awayTeamGoals) {

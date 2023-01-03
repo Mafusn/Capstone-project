@@ -2,11 +2,11 @@ package Classes;
 
 import java.util.ArrayList;
 
-public class Official extends Person{
+public class Delegate extends Person{
     private int yearsOfExperience;
     private ArrayList<Match> matches;
 
-    public Official(String name, int ID, int yearsOfExperience) {
+    public Delegate(String name, int ID, int yearsOfExperience) {
         super(name, ID);
         this.yearsOfExperience = yearsOfExperience;
         this.matches = new ArrayList<>();
