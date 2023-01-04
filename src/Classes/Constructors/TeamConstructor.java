@@ -1,3 +1,5 @@
+// Magnus Peetz Holt - mph21@student.aau.dk
+
 package Classes.Constructors;
 
 // Creates and returns a team, only the create team method should be public

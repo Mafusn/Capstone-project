@@ -1,3 +1,5 @@
+// Magnus Peetz Holt - mph21@student.aau.dk
+
 package Classes.Constructors;
 
 import Classes.Match;

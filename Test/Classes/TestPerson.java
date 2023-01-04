@@ -1,3 +1,5 @@
+// Magnus Peetz Holt - mph21@student.aau.dk
+
 package Classes;
 
 import org.junit.Test;
