@@ -48,7 +48,7 @@ public class TestTeam {
     }
     @Test
     public void getTeamLeader() {
-        assertEquals("Bente", team.getTeamLeader().getName());
+        assertEquals(bente, team.getTeamLeader());
     }
 
     @Test
